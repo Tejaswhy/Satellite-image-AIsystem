@@ -1,59 +1,54 @@
-# Satellite Image AI System
+# Satellite Image Anomaly Detection System
 
-## Overview
+## Project Description
 
-Satellite Image AI System is a machine learning based application designed to detect abnormal patterns in satellite imagery. The system uses deep learning techniques to identify potential land-use anomalies such as deforestation, illegal construction, and river encroachment. The objective of this project is to demonstrate how artificial intelligence can assist in monitoring environmental and urban changes through automated analysis of satellite images.
+This project presents an AI-based system designed to detect abnormal patterns in satellite images. The goal of the system is to automatically identify unusual land-use activities such as deforestation, illegal building construction, and river encroachment. By using deep learning techniques, the system analyzes satellite imagery and highlights regions that differ from normal patterns.
 
-## Problem Statement
+The system combines anomaly detection and image classification to improve the accuracy of detecting land-use changes. It also provides a visual representation of detected anomalies using heatmaps, allowing users to easily identify suspicious regions in the uploaded satellite image.
 
-Monitoring large geographical regions manually is extremely difficult and time-consuming. Activities such as illegal deforestation, unauthorized buildings, and encroachment into rivers or lakes often go undetected. Satellite imagery provides valuable information, but analyzing thousands of images manually is inefficient. This project proposes an automated AI-based solution to detect anomalies in satellite images and assist in environmental monitoring.
+## Methodology
 
-## System Approach
+The system follows a two-stage pipeline for image analysis.
 
-The system follows a two-stage pipeline.
+The first stage uses an anomaly detection model called PaDiM. This model learns the normal distribution of satellite image features during training. When a new image is analyzed, the model identifies regions that deviate from the learned normal patterns. These deviations are treated as anomalies.
 
-First, anomaly detection is performed using the PaDiM model. PaDiM learns the normal feature distribution from training images and identifies unusual patterns that deviate from this distribution.
-
-Second, once an anomaly is detected, an image classifier based on EfficientNet-B0 predicts the type of anomaly. The classifier categorizes detected anomalies into predefined classes such as deforestation, illegal building, and river encroachment.
-
-## Features
-
-Detection of abnormal patterns in satellite images
-Classification of detected anomalies into specific categories
-Visualization of anomaly regions using heatmaps
-Interactive web interface for image upload and analysis
-Efficient deep learning pipeline for anomaly detection and classification
+The second stage uses an image classification model to categorize the detected anomaly. The classifier predicts whether the anomaly corresponds to deforestation, illegal building activity, or river encroachment.
 
 ## Technologies Used
 
-Python programming language
-PyTorch deep learning framework
-Anomalib library for anomaly detection
-TorchVision for pretrained models
-Streamlit for the web interface
-NumPy for numerical operations
-OpenCV for image processing
-Matplotlib for visualization
+Python is used as the primary programming language for building the system.
 
-## Project Structure
+PyTorch is used as the deep learning framework for model implementation and inference.
 
-app.py contains the main Streamlit application
-README.md contains project documentation
-requirements.txt lists the project dependencies
-.gitignore excludes large files such as trained model weights
+TorchVision provides pretrained models and image transformations used in the classification pipeline.
 
-## How to Run
+Anomalib is used to implement the PaDiM anomaly detection algorithm.
 
-Clone the repository from GitHub
-Install required dependencies using pip install -r requirements.txt
-Place the trained model files in the project directory
-Run the application using streamlit run app.py
+Streamlit is used to build the interactive web interface that allows users to upload and analyze satellite images.
 
-## Applications
+NumPy is used for numerical operations during image processing.
+
+OpenCV is used for resizing and processing images for visualization.
+
+Matplotlib is used to generate anomaly heatmaps.
+
+Pillow is used for loading and handling image files.
+
+## System Features
+
+Upload satellite images through a web interface
+Detect abnormal regions in satellite imagery
+Classify detected anomalies into predefined categories
+Generate heatmap overlays highlighting anomalous areas
+Provide an interactive interface for visualizing results
+
+## Application Areas
 
 Environmental monitoring
-Urban planning and infrastructure monitoring
-Detection of illegal deforestation
-Identification of unauthorized construction
-Satellite-based land use analysis
+Urban development monitoring
+Detection of illegal land use
+Remote sensing analysis
 
+## Conclusion
+
+This project demonstrates how artificial intelligence and computer vision can assist in analyzing satellite imagery and detecting abnormal land-use patterns efficiently.
